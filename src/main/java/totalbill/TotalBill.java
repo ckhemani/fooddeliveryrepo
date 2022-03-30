@@ -1,9 +1,9 @@
 package totalbill;
 
 public class TotalBill {
-    double priceOfItem;
-    float tax;
-    float tip;
-    float fuelSurcharge;
-    double deliveryfee;
+    private double priceOfItem;
+    private float tax;
+    private float tip;
+    private float fuelSurcharge;
+    private double deliveryfee;
 }

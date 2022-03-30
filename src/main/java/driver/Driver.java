@@ -2,7 +2,7 @@ package driver;
 
 public class Driver {
     private String name;
-    String carType;
-    int ratingInPercent;
-    String InstructionsForDelivery;
+    private String carType;
+    private int ratingInPercent;
+    private String InstructionsForDelivery;
 }

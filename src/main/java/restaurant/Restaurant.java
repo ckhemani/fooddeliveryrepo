@@ -3,17 +3,15 @@ package restaurant;
 public class Restaurant {
     String item;
     String description;
-    String ingridents;
     String spiceLevel;
     String specialNotes;
 
     public Restaurant() {
     }
 
-    public Restaurant(String item, String description, String ingridents, String spiceLevel, String specialNotes) {
+    public Restaurant(String item, String description,  String spiceLevel, String specialNotes) {
         this.item = item;
         this.description = description;
-        this.ingridents = ingridents;
         this.spiceLevel = spiceLevel;
         this.specialNotes = specialNotes;
     }
@@ -32,14 +30,6 @@ public class Restaurant {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getIngridents() {
-        return ingridents;
-    }
-
-    public void setIngridents(String ingridents) {
-        this.ingridents = ingridents;
     }
 
     public String getSpiceLevel() {
@@ -63,7 +53,6 @@ public class Restaurant {
         return "Restaurant{" +
                 "item='" + item + '\'' +
                 ", description='" + description + '\'' +
-                ", ingridents='" + ingridents + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
                 ", specialNotes='" + specialNotes + '\'' +
                 '}';
