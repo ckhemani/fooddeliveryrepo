@@ -17,9 +17,6 @@ public class Main {
 
         addRestaurantInApp();
 
-
-
-
     }
 
     public static String eatAppGreeting(){
