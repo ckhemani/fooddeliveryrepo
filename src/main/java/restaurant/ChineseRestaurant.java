@@ -2,12 +2,12 @@ package restaurant;
 
 public class ChineseRestaurant extends Restaurant{
     private int fortuneCookiepPackets;
-    private int hotsaucePackets;
+    private int hotSaucePackets;
 
-    public ChineseRestaurant(String item, String description, String spiceLevel, String specialNotes, int fortuneCookiepPackets, int hotsaucePackets) {
+    public ChineseRestaurant(String item, String description, String spiceLevel, String specialNotes, int fortuneCookiepPackets, int hotSaucePackets) {
         super(item, description, spiceLevel, specialNotes);
         this.fortuneCookiepPackets = fortuneCookiepPackets;
-        this.hotsaucePackets = hotsaucePackets;
+        this.hotSaucePackets = hotSaucePackets;
     }
 
     public int getFortuneCookiepPackets() {
@@ -18,19 +18,19 @@ public class ChineseRestaurant extends Restaurant{
         this.fortuneCookiepPackets = fortuneCookiepPackets;
     }
 
-    public int getHotsaucePackets() {
-        return hotsaucePackets;
+    public int getHotSaucePackets() {
+        return hotSaucePackets;
     }
 
-    public void setHotsaucePackets(int hotsaucePackets) {
-        this.hotsaucePackets = hotsaucePackets;
+    public void setHotSaucePackets(int hotSaucePackets) {
+        this.hotSaucePackets = hotSaucePackets;
     }
 
     @Override
     public String toString() {
         return "ChineseRestaurant{" +
                 "fortuneCookiepPackets=" + fortuneCookiepPackets +
-                ", hotsaucePackets=" + hotsaucePackets +
+                ", hotSaucePackets=" + hotSaucePackets +
                 ", item='" + item + '\'' +
                 ", description='" + description + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
