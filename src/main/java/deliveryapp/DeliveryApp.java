@@ -3,17 +3,23 @@ package deliveryapp;
 import customer.Customer;
 import driver.Driver;
 import restaurant.Restaurant;
-import totalbill.TotalBill;
+
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DeliveryApp {
     private String deliveryAppName;
     private Customer orderingAppCustomer;
     private Driver deliveryAppDriverName;
     private ArrayList<Restaurant> restaurants = new ArrayList<>();
-    private TotalBill totalBill;
+
+
+    public DeliveryApp(String deliveryAppName, Customer orderingAppCustomer, Driver deliveryAppDriverName, ArrayList<Restaurant> restaurants) {
+        this.deliveryAppName = deliveryAppName;
+        this.orderingAppCustomer = orderingAppCustomer;
+        this.deliveryAppDriverName = deliveryAppDriverName;
+        this.restaurants = restaurants;
+    }
 
     public DeliveryApp(String deliveryAppName) {
         this.deliveryAppName = deliveryAppName;
@@ -43,6 +49,7 @@ public class DeliveryApp {
         this.deliveryAppDriverName = deliveryAppDriverName;
     }
 
+
     public ArrayList<Restaurant> getRestaurants() {
         return restaurants;
     }
@@ -51,13 +58,6 @@ public class DeliveryApp {
         this.restaurants = restaurants;
     }
 
-    public TotalBill getTotalBill() {
-        return totalBill;
-    }
-
-    public void setTotalBill(TotalBill totalBill) {
-        this.totalBill = totalBill;
-    }
 
     @Override
     public String toString() {
@@ -66,7 +66,6 @@ public class DeliveryApp {
                 ", orderingAppCustomer=" + orderingAppCustomer +
                 ", deliveryAppDriverName=" + deliveryAppDriverName +
                 ", restaurants=" + restaurants +
-                ", totalBill=" + totalBill +
                 '}';
     }
 }

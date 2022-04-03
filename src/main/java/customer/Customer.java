@@ -44,6 +44,16 @@ public class Customer {
     public void setMobileNumber(long mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", mobileNumber=" + mobileNumber +
+                '}';
+    }
 }
 
 

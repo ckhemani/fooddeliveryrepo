@@ -2,6 +2,7 @@ import customer.Customer;
 import deliveryapp.DeliveryApp;
 import driver.Driver;
 import restaurant.*;
+import totalbill.TotalBill;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -19,8 +20,8 @@ public class Main {
         System.out.println(eatAppGreeting());
 
         // Adding Customer and Driver in APP.
-        customerRegister();
-        driverRegister();
+ //       customerRegister();
+ //       driverRegister();
 
         // Adding Restaurant in App.
         addRestaurantsInApp();
@@ -30,21 +31,30 @@ public class Main {
             switch (pickRestaurant()) {
                 case 1:
                     System.out.println("You have picked Chinese Restaurant !");
+                    System.out.println(uberEats.getRestaurants().get(0));
+                    System.out.println(TotalBillWithDeliveryApp());
+                    System.out.println();
                     break;
                 case 2:
                     System.out.println("You have picked up Fast Food Restaurant");
+                    System.out.println(uberEats.getRestaurants().get(1));
+                    System.out.println(TotalBillWithDeliveryApp());
                     break;
                 case 3:
                     System.out.println("You have picked up Indian Restaurant!");
+                    System.out.println(uberEats.getRestaurants().get(2));
+                    System.out.println(TotalBillWithDeliveryApp());
                     break;
                 case 4:
                     System.out.println("You have picked up Mexican Restaurant!");
+                    System.out.println(uberEats.getRestaurants().get(3));
+                    System.out.println(TotalBillWithDeliveryApp());
                     break;
                 case 5:
-                    System.out.println("Thank you " + uberEats.getOrderingAppCustomer().getFirstName() + " for visiting the DeliveryApp UberEats");
+                    System.out.println("Thank you " + uberEats.getOrderingAppCustomer().getFirstName() + " for visiting the DeliveryApp " + "UberEats");
                     System.exit(0);
                 default:
-                    System.out.println("Please pick Either 1-5");
+                    System.out.println("Please pick Restaurant 1-4 OR use 5 to exit");
             }
         }
 
@@ -86,6 +96,7 @@ public class Main {
         String driverCar = input.next();
 
         uberEats.setDeliveryAppDriverName(new Driver(driverName,driverCar));
+        System.out.println(uberEats.getDeliveryAppDriverName());
     }
 
     public static int pickRestaurant(){
@@ -100,6 +111,20 @@ public class Main {
         return input.nextInt();
     }
 
+    public static float TotalBillWithDeliveryApp(){
+        System.out.println("Please enter the Price of Item");
+        float priceOfItem = input.nextFloat();
+        System.out.println("Please enter the Delivery Fee for Item");
+        float deliveryFee = input.nextFloat();
 
 
+//        TotalBill temp123 = new TotalBill(10,4);
+        TotalBill total = new TotalBill();
+        total.setPriceOfItem(priceOfItem);
+        total.setDeliveryFee(deliveryFee);
+        System.out.println(total);
+        float finalTotal = total.totalCost();
+        System.out.println(finalTotal);
+        return finalTotal;
+    }
 }
