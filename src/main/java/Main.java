@@ -20,8 +20,8 @@ public class Main {
         System.out.println(eatAppGreeting());
 
         // Adding Customer and Driver in APP.
- //       customerRegister();
- //       driverRegister();
+        customerRegister();
+        driverRegister();
 
         // Adding Restaurant in App.
         addRestaurantsInApp();
