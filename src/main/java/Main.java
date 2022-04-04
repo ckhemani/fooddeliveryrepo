@@ -31,9 +31,9 @@ public class Main {
         addRestaurantsInApp();
 
         //Testing the File operation
-        createAUberEatsFile();
-        writeAUberEatAFile();
-        readAUberEatAFile();
+       // createAUberEatsFile();
+       // writeAUberEatAFile();
+       // readAUberEatAFile();
 
         // Restaurant Selection and Food Selection
         while(true) {
