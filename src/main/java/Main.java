@@ -4,10 +4,14 @@ import driver.Driver;
 import restaurant.*;
 import totalbill.TotalBill;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    private static final Path uberEatsFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\ubereats.txt");
     private static final Scanner input = new Scanner(System.in);
     private static final DeliveryApp uberEats = new DeliveryApp("UberEats");
     private static final ChineseRestaurant chinaKing = new ChineseRestaurant("Fried Rice","Rice with Vegetables","medium","Hot Sauce on Side",1,4);
@@ -25,6 +29,11 @@ public class Main {
 
         // Adding Restaurant in App.
         addRestaurantsInApp();
+
+        //Testing the File operation
+        createAUberEatsFile();
+        writeAUberEatAFile();
+        readAUberEatAFile();
 
         // Restaurant Selection and Food Selection
         while(true) {
@@ -127,4 +136,32 @@ public class Main {
         System.out.println(finalTotal);
         return finalTotal;
     }
+    //Create
+    public static void createAUberEatsFile(){
+        try{
+            Files.createFile(uberEatsFilePath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    //Update
+    public static void writeAUberEatAFile(){
+        try{
+            Files.writeString(uberEatsFilePath,"This is UberEats App Data File.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Read
+    public static void readAUberEatAFile(){
+        String temp;
+        try{
+            temp = Files.readString(uberEatsFilePath);
+            System.out.println(temp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
