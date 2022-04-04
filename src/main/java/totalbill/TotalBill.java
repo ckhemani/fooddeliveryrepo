@@ -11,8 +11,8 @@ public class TotalBill {
     }
 
     public TotalBill(float priceOfItem, float deliveryFee) {
-        this.priceOfItem = this.priceOfItem;
-        this.deliveryFee = this.deliveryFee;
+        this.priceOfItem = priceOfItem;
+        this.deliveryFee = deliveryFee;
     }
 
     public float getPriceOfItem() {
@@ -40,8 +40,8 @@ public class TotalBill {
     @Override
     public String toString() {
         return "TotalBill{" +
-                "priceOfItem=" + priceOfItem +
-                ", deliveryFee=" + deliveryFee +
+                "priceOfItem=" + getPriceOfItem() +
+                ", deliveryFee=" + getDeliveryFee() +
                 ", TAXRATEINPERCENT=" + TAXRATEINPERCENT +
                 ", TIPRATEINPERCENT=" + TIPRATEINPERCENT +
                 ", FUELSURCHARGE=" + FUELSURCHARGE +

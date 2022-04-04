@@ -3,6 +3,7 @@ package deliveryapp;
 import customer.Customer;
 import driver.Driver;
 import restaurant.Restaurant;
+import totalbill.TotalBill;
 
 
 import java.util.ArrayList;
@@ -12,13 +13,15 @@ public class DeliveryApp {
     private Customer orderingAppCustomer;
     private Driver deliveryAppDriverName;
     private ArrayList<Restaurant> restaurants = new ArrayList<>();
+    private TotalBill total;
 
 
-    public DeliveryApp(String deliveryAppName, Customer orderingAppCustomer, Driver deliveryAppDriverName, ArrayList<Restaurant> restaurants) {
+    public DeliveryApp(String deliveryAppName, Customer orderingAppCustomer, Driver deliveryAppDriverName, ArrayList<Restaurant> restaurants, TotalBill total) {
         this.deliveryAppName = deliveryAppName;
         this.orderingAppCustomer = orderingAppCustomer;
         this.deliveryAppDriverName = deliveryAppDriverName;
         this.restaurants = restaurants;
+        this.total = total;
     }
 
     public DeliveryApp(String deliveryAppName) {
@@ -58,6 +61,13 @@ public class DeliveryApp {
         this.restaurants = restaurants;
     }
 
+    public TotalBill getTotal() {
+        return total;
+    }
+
+    public void setTotal(TotalBill total) {
+        this.total = total;
+    }
 
     @Override
     public String toString() {

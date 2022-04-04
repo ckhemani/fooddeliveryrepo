@@ -24,8 +24,8 @@ public class Main {
         System.out.println(eatAppGreeting());
 
         // Adding Customer and Driver in APP.
-        customerRegister();
-        driverRegister();
+       // customerRegister();
+        //driverRegister();
 
         // Adding Restaurant in App.
         addRestaurantsInApp();
@@ -40,7 +40,7 @@ public class Main {
             switch (pickRestaurant()) {
                 case 1:
                     System.out.println("You have picked Chinese Restaurant !");
-                    System.out.println(uberEats.getRestaurants().get(0));
+                    System.out.println(uberEats.getRestaurants().get(0).getItem());
                     System.out.println(TotalBillWithDeliveryApp());
                     System.out.println();
                     break;
@@ -110,7 +110,7 @@ public class Main {
 
     public static int pickRestaurant(){
         System.out.println("""
-                sout("Please enter your Restaurant Cuisine selection?"
+                Please enter your Restaurant Cuisine selection?
                 1. Chinese Restaurant
                 2. Fast Food Restaurant
                 3. Indian Restaurant
@@ -126,11 +126,9 @@ public class Main {
         System.out.println("Please enter the Delivery Fee for Item");
         float deliveryFee = input.nextFloat();
 
-
-//        TotalBill temp123 = new TotalBill(10,4);
-        TotalBill total = new TotalBill();
-        total.setPriceOfItem(priceOfItem);
-        total.setDeliveryFee(deliveryFee);
+//        uberEats.setTotal(new TotalBill(priceOfItem,deliveryFee));
+//        System.out.println(uberEats.setTotal());
+        TotalBill total = new TotalBill(priceOfItem,deliveryFee);
         System.out.println(total);
         float finalTotal = total.totalCost();
         System.out.println(finalTotal);
