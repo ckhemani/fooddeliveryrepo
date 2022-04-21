@@ -1,4 +1,3 @@
-import com.sun.jdi.VirtualMachineManager;
 import customer.Customer;
 import deliveryapp.DeliveryApp;
 import driver.Driver;
@@ -10,16 +9,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     private static final Path uberEatsFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\ubereats.txt");
+    private static final Path doorDashFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\doordash.txt");
     private static final Scanner input = new Scanner(System.in);
-    private static final DeliveryApp uberEats = new DeliveryApp("UberEats");
-//    private static final ChineseRestaurant chinaKing = new ChineseRestaurant("Fried Rice","Rice with Vegetables","medium","Hot Sauce on Side",1,4);
-//    private static final FastFoodRestaurant chickAFila = new FastFoodRestaurant("Fried Chicken","Chicken Fried","medium","Buffalo Sauce on side",2);
-//    private static final IndianRestaurant rasoi = new IndianRestaurant("Tandoor Chicken","Chicked merinated and Grilled","medium","Onions on Side",1);
-//    private static final MexicanRestaurant chipotle = new MexicanRestaurant("Chicken Bowl","Chicken with no Glau","medium","put hot sauce on side",false);
+    private static final DeliveryApp deliveryAppName = new DeliveryApp();
 
     public static void main(String[] args) {
         //Greeting to EATING APP
@@ -28,6 +23,7 @@ public class Main {
         // Adding Customer and Driver in APP.
        // customerRegister();
         //driverRegister();
+        deliveryAppName.setDeliveryAppName("UberEats");
 
         // Adding Restaurant in App.
         addRestaurantsInApp();
@@ -37,37 +33,37 @@ public class Main {
        // writeAUberEatAFile();
        // readAUberEatAFile();
 
-        // Restaurant Selection and Food Selection
-        while(true) {
-            switch (pickRestaurant()) {
-                case 1:
-                    System.out.println("You have picked Chinese Restaurant !");
-                    System.out.println(uberEats.getRestaurants().get(0).getItem());
-                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Chinese Food");
-                    System.out.println();
-                    break;
-                case 2:
-                    System.out.println("You have picked up Fast Food Restaurant");
-                    System.out.println(uberEats.getRestaurants().get(1).getItem());
-                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Fast Food");
-                    break;
-                case 3:
-                    System.out.println("You have picked up Indian Restaurant!");
-                    System.out.println(uberEats.getRestaurants().get(2).getItem());
-                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Indian Food");
-                    break;
-                case 4:
-                    System.out.println("You have picked up Mexican Restaurant!");
-                    System.out.println(uberEats.getRestaurants().get(3).getItem());
-                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Mexican Food");
-                    break;
-                case 5:
-                    System.out.println("Thank you " + uberEats.getOrderingAppCustomer().getFirstName() + " for visiting the DeliveryApp " + "UberEats");
-                    System.exit(0);
-                default:
-                    System.out.println("Please pick Restaurant 1-4 OR use 5 to exit");
-            }
-        }
+//        // Restaurant Selection and Food Selection
+//        while(true) {
+//            switch (pickRestaurant()) {
+//                case 1:
+//                    System.out.println("You have picked Chinese Restaurant !");
+//                    System.out.println(uberEats.getRestaurants().get(0).getItem());
+//                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Chinese Food");
+//                    System.out.println();
+//                    break;
+//                case 2:
+//                    System.out.println("You have picked up Fast Food Restaurant");
+//                    System.out.println(uberEats.getRestaurants().get(1).getItem());
+//                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Fast Food");
+//                    break;
+//                case 3:
+//                    System.out.println("You have picked up Indian Restaurant!");
+//                    System.out.println(uberEats.getRestaurants().get(2).getItem());
+//                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Indian Food");
+//                    break;
+//                case 4:
+//                    System.out.println("You have picked up Mexican Restaurant!");
+//                    System.out.println(uberEats.getRestaurants().get(3).getItem());
+//                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Mexican Food");
+//                    break;
+//                case 5:
+//                    System.out.println("Thank you " + uberEats.getOrderingAppCustomer().getFirstName() + " for visiting the DeliveryApp " + "UberEats");
+//                    System.exit(0);
+//                default:
+//                    System.out.println("Please pick Restaurant 1-4 OR use 5 to exit");
+//            }
+//      }
 
 
     }
@@ -100,7 +96,7 @@ public class Main {
                 rest1.setFortuneCookiepPackets(input.nextInt());
                 System.out.println(rest1);
                 restaurants.add(rest1);
-                uberEats.setRestaurants(restaurants);
+                deliveryAppName.setRestaurants(restaurants);
             }
             if(cuisineType.equals("FastFood")){
                 FastFoodRestaurant rest1 = new FastFoodRestaurant();
@@ -113,11 +109,11 @@ public class Main {
                 System.out.println("Any Special notes");
                 input.nextLine();
                 rest1.setSpecialNotes(input.nextLine());
-                System.out.println("Fortune cookies");
+                System.out.println("Ketchup Packets");
                 rest1.setKetchupPackets(input.nextInt());
                 System.out.println(rest1);
                 restaurants.add(rest1);
-                uberEats.setRestaurants(restaurants);
+                deliveryAppName.setRestaurants(restaurants);
             }
             if(cuisineType.equals("Indian")) {
                 IndianRestaurant rest1 = new IndianRestaurant();
@@ -130,11 +126,11 @@ public class Main {
                 System.out.println("Any Special notes");
                 input.nextLine();
                 rest1.setSpecialNotes(input.nextLine());
-                System.out.println("Fortune cookies");
+                System.out.println("Chutney Packets");
                 rest1.setChutneyPackets(input.nextInt());
                 System.out.println(rest1);
                 restaurants.add(rest1);
-                uberEats.setRestaurants(restaurants);
+                deliveryAppName.setRestaurants(restaurants);
             }
             if(cuisineType.equals("Mexican")) {
                 MexicanRestaurant rest1 = new MexicanRestaurant();
@@ -147,19 +143,25 @@ public class Main {
                 System.out.println("Any Special notes");
                 input.nextLine();
                 rest1.setSpecialNotes(input.nextLine());
-                System.out.println("Fortune cookies");
+                System.out.println("Need Chip and Salsa(true/false)");
                 rest1.isNeedChipAndSalsa(input.nextBoolean());
                 System.out.println(rest1);
                 restaurants.add(rest1);
-                uberEats.setRestaurants(restaurants);
+                deliveryAppName.setRestaurants(restaurants);
             }
         }
 //        restaurants.add(chinaKing);
 //        restaurants.add(chickAFila);
 //        restaurants.add(rasoi);
 //        restaurants.add(chipotle);
-
-//        uberEats.setRestaurants(restaurants);
+        System.out.println(deliveryAppName);
+        System.out.println(deliveryAppName.getDeliveryAppName());
+        for (int i=0;i<deliveryAppName.getRestaurants().size();i++) {
+            System.out.println(deliveryAppName.getRestaurants().get(i));
+        }
+//        uberEats.getRestaurants(restaurants);
+//        uberEats.getRestaurants().get(0).getItem();
+//        uberEats.getRestaurants().get(1).getItem();
 
     }
 
@@ -173,7 +175,7 @@ public class Main {
         System.out.println("Please enter your Mobile Number");
         long mobileNumber = input.nextLong();
 
-        uberEats.setOrderingAppCustomer(new Customer(firstName,lastName,address,mobileNumber));
+        deliveryAppName.setOrderingAppCustomer(new Customer(firstName,lastName,address,mobileNumber));
     }
 
     public static void driverRegister(){
@@ -182,8 +184,8 @@ public class Main {
         System.out.println("Please enter your Car Details");
         String driverCar = input.next();
 
-        uberEats.setDeliveryAppDriverName(new Driver(driverName,driverCar));
-        System.out.println(uberEats.getDeliveryAppDriverName());
+        deliveryAppName.setDeliveryAppDriverName(new Driver(driverName,driverCar));
+        System.out.println(deliveryAppName.getDeliveryAppDriverName());
     }
 
     public static int pickRestaurant(){

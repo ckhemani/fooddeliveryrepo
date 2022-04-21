@@ -15,6 +15,8 @@ public class DeliveryApp {
     private ArrayList<Restaurant> restaurants;
     private TotalBill total;
 
+    public DeliveryApp() {
+    }
 
     public DeliveryApp(String deliveryAppName, Customer orderingAppCustomer, Driver deliveryAppDriverName, ArrayList<Restaurant> restaurants, TotalBill total) {
         this.deliveryAppName = deliveryAppName;
@@ -22,10 +24,6 @@ public class DeliveryApp {
         this.deliveryAppDriverName = deliveryAppDriverName;
         this.restaurants = restaurants;
         this.total = total;
-    }
-
-    public DeliveryApp(String deliveryAppName) {
-        this.deliveryAppName = deliveryAppName;
     }
 
     public String getDeliveryAppName() {
@@ -51,7 +49,6 @@ public class DeliveryApp {
     public void setDeliveryAppDriverName(Driver deliveryAppDriverName) {
         this.deliveryAppDriverName = deliveryAppDriverName;
     }
-
 
     public ArrayList<Restaurant> getRestaurants() {
         return restaurants;
