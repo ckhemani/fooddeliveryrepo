@@ -12,7 +12,7 @@ public class DeliveryApp {
     private String deliveryAppName;
     private Customer orderingAppCustomer;
     private Driver deliveryAppDriverName;
-    private ArrayList<Restaurant> restaurants = new ArrayList<>();
+    private ArrayList<Restaurant> restaurants;
     private TotalBill total;
 
 

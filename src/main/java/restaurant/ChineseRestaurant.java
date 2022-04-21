@@ -4,8 +4,11 @@ public class ChineseRestaurant extends Restaurant{
     private int fortuneCookiepPackets;
     private int hotSaucePackets;
 
-    public ChineseRestaurant(String item, String description, String spiceLevel, String specialNotes, int fortuneCookiepPackets, int hotSaucePackets) {
-        super(item, description, spiceLevel, specialNotes);
+    public ChineseRestaurant() {
+    }
+
+    public ChineseRestaurant(String name, String item, String spiceLevel, String specialNotes, int fortuneCookiepPackets, int hotSaucePackets) {
+        super(name, item, spiceLevel, specialNotes);
         this.fortuneCookiepPackets = fortuneCookiepPackets;
         this.hotSaucePackets = hotSaucePackets;
     }
@@ -29,12 +32,12 @@ public class ChineseRestaurant extends Restaurant{
     @Override
     public String toString() {
         return "ChineseRestaurant{" +
-                "fortuneCookiepPackets=" + fortuneCookiepPackets +
-                ", hotSaucePackets=" + hotSaucePackets +
+                "name ='" + name + '\'' +
                 ", item='" + item + '\'' +
-                ", description='" + description + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
                 ", specialNotes='" + specialNotes + '\'' +
+                ", fortuneCookiepPackets=" + fortuneCookiepPackets +
+                ", hotSaucePackets=" + hotSaucePackets +
                 '}';
     }
 }

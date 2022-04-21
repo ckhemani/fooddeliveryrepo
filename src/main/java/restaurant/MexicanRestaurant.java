@@ -3,23 +3,26 @@ package restaurant;
 public class MexicanRestaurant extends Restaurant{
     boolean needChipAndSalsa;
 
-    public MexicanRestaurant(String item, String description, String spiceLevel, String specialNotes, boolean needChipAndSalsa) {
-        super(item, description, spiceLevel, specialNotes);
+    public MexicanRestaurant() {
+    }
+
+    public MexicanRestaurant(String name, String item, String spiceLevel, String specialNotes, boolean needChipAndSalsa) {
+        super(name, item, spiceLevel, specialNotes);
         this.needChipAndSalsa = needChipAndSalsa;
     }
 
-    public boolean isNeedChipAndSalsa() {
+    public boolean isNeedChipAndSalsa(boolean b) {
         return needChipAndSalsa;
     }
 
     @Override
     public String toString() {
         return "MexicanRestaurant{" +
-                "needChipAndSalsa=" + needChipAndSalsa +
+                "name ='" + name + '\'' +
                 ", item='" + item + '\'' +
-                ", description='" + description + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
                 ", specialNotes='" + specialNotes + '\'' +
+                ", needChipAndSalsa=" + needChipAndSalsa +", " +
                 '}';
     }
 

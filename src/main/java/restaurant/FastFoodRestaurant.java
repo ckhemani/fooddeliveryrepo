@@ -3,8 +3,11 @@ package restaurant;
 public class FastFoodRestaurant extends Restaurant{
     private int ketchupPackets;
 
-    public FastFoodRestaurant(String item, String description, String spiceLevel, String specialNotes, int ketchupPackets) {
-        super(item, description, spiceLevel, specialNotes);
+    public FastFoodRestaurant() {
+    }
+
+    public FastFoodRestaurant(String name, String item, String spiceLevel, String specialNotes, int ketchupPackets) {
+        super(name, item, spiceLevel, specialNotes);
         this.ketchupPackets = ketchupPackets;
     }
 
@@ -19,11 +22,11 @@ public class FastFoodRestaurant extends Restaurant{
     @Override
     public String toString() {
         return "FastFoodRestaurant{" +
-                "ketchupPackets=" + ketchupPackets +
+                "name ='" + name + '\'' +
                 ", item='" + item + '\'' +
-                ", description='" + description + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
                 ", specialNotes='" + specialNotes + '\'' +
+                ", ketchupPackets=" + ketchupPackets +
                 '}';
     }
 }

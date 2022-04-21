@@ -3,8 +3,11 @@ package restaurant;
 public class IndianRestaurant extends Restaurant{
     int chutneyPackets;
 
-    public IndianRestaurant(String item, String description, String spiceLevel, String specialNotes, int chutneyPackets) {
-        super(item, description, spiceLevel, specialNotes);
+    public IndianRestaurant() {
+    }
+
+    public IndianRestaurant(String name, String item, String spiceLevel, String specialNotes, int chutneyPackets) {
+        super(name, item, spiceLevel, specialNotes);
         this.chutneyPackets = chutneyPackets;
     }
 
@@ -15,11 +18,11 @@ public class IndianRestaurant extends Restaurant{
     @Override
     public String toString() {
         return "IndianRestaurant{" +
-                "chutneyPackets=" + chutneyPackets +
+                "name ='" + name + '\'' +
                 ", item='" + item + '\'' +
-                ", description='" + description + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
                 ", specialNotes='" + specialNotes + '\'' +
+                ", chutneyPackets=" + chutneyPackets +
                 '}';
     }
 

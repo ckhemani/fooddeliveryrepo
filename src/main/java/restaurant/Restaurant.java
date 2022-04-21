@@ -1,35 +1,34 @@
 package restaurant;
 
 public class Restaurant {
+    String name;
     String item;
-    String description;
     String spiceLevel;
     String specialNotes;
 
     public Restaurant() {
     }
 
-    public Restaurant(String item, String description,  String spiceLevel, String specialNotes) {
+    public Restaurant(String name, String item,  String spiceLevel, String specialNotes) {
+        this.name = name;
         this.item = item;
-        this.description = description;
         this.spiceLevel = spiceLevel;
         this.specialNotes = specialNotes;
     }
 
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
     public String getItem() {
         return item;
     }
 
     public void setItem(String item) {
         this.item = item;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getSpiceLevel() {
@@ -51,8 +50,8 @@ public class Restaurant {
     @Override
     public String toString() {
         return "Restaurant{" +
-                "item='" + item + '\'' +
-                ", description='" + description + '\'' +
+                "name='" + name + '\'' +
+                ", item='" + item + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
                 ", specialNotes='" + specialNotes + '\'' +
                 '}';
