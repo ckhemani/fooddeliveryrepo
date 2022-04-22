@@ -9,20 +9,21 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(String name, String item,  String spiceLevel, String specialNotes) {
+    public Restaurant(String name, String item, String spiceLevel, String specialNotes) {
         this.name = name;
         this.item = item;
         this.spiceLevel = spiceLevel;
         this.specialNotes = specialNotes;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
+
     public String getItem() {
         return item;
     }
@@ -56,6 +57,14 @@ public class Restaurant {
                 ", specialNotes='" + specialNotes + '\'' +
                 '}';
     }
+//    public String toString() {
+//        return "Restaurant{" +
+//                "name='" + name + '\'' +
+//                ", item='" + item + '\'' +
+//                ", spiceLevel='" + spiceLevel + '\'' +
+//                ", specialNotes='" + specialNotes + '\'' +
+//                '}';
+//    }
 }
 
 

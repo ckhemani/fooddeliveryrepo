@@ -30,14 +30,23 @@ public class ChineseRestaurant extends Restaurant{
     }
 
     @Override
+//    public String toString() {
+//        return "ChineseRestaurant{" +
+//                "name ='" + name + '\'' +
+//                ", item='" + item + '\'' +
+//                ", spiceLevel='" + spiceLevel + '\'' +
+//                ", specialNotes='" + specialNotes + '\'' +
+//                ", fortuneCookiepPackets=" + fortuneCookiepPackets +
+//                ", hotSaucePackets=" + hotSaucePackets +
+//                '}';
+//    }
+
     public String toString() {
-        return "ChineseRestaurant{" +
-                "name ='" + name + '\'' +
+        return  "ChineseRestaurantname ='" + name + '\'' +
                 ", item='" + item + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
                 ", specialNotes='" + specialNotes + '\'' +
                 ", fortuneCookiepPackets=" + fortuneCookiepPackets +
-                ", hotSaucePackets=" + hotSaucePackets +
-                '}';
+                ", hotSaucePackets=" + hotSaucePackets ;
     }
 }

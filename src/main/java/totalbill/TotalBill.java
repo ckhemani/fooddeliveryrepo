@@ -1,5 +1,7 @@
 package totalbill;
 
+import deliveryapp.DeliveryApp;
+
 public class TotalBill {
     private float priceOfItem;
     private static final float TAXRATEINPERCENT = (float) 0.06;

@@ -11,17 +11,17 @@ import java.util.ArrayList;
 public class DeliveryApp {
     private String deliveryAppName;
     private Customer orderingAppCustomer;
-    private Driver deliveryAppDriverName;
+    private Driver deliveryAppDriver;
     private ArrayList<Restaurant> restaurants;
     private TotalBill total;
 
     public DeliveryApp() {
     }
 
-    public DeliveryApp(String deliveryAppName, Customer orderingAppCustomer, Driver deliveryAppDriverName, ArrayList<Restaurant> restaurants, TotalBill total) {
+    public DeliveryApp(String deliveryAppName, Customer orderingAppCustomer, Driver deliveryAppDriver, ArrayList<Restaurant> restaurants, TotalBill total) {
         this.deliveryAppName = deliveryAppName;
         this.orderingAppCustomer = orderingAppCustomer;
-        this.deliveryAppDriverName = deliveryAppDriverName;
+        this.deliveryAppDriver = deliveryAppDriver;
         this.restaurants = restaurants;
         this.total = total;
     }
@@ -42,12 +42,12 @@ public class DeliveryApp {
         this.orderingAppCustomer = orderingAppCustomer;
     }
 
-    public Driver getDeliveryAppDriverName() {
-        return deliveryAppDriverName;
+    public Driver getDeliveryAppDriver() {
+        return deliveryAppDriver;
     }
 
-    public void setDeliveryAppDriverName(Driver deliveryAppDriverName) {
-        this.deliveryAppDriverName = deliveryAppDriverName;
+    public void setDeliveryAppDriver(Driver deliveryAppDriver) {
+        this.deliveryAppDriver = deliveryAppDriver;
     }
 
     public ArrayList<Restaurant> getRestaurants() {
@@ -67,12 +67,23 @@ public class DeliveryApp {
     }
 
     @Override
+//    public String toString() {
+//        return "DeliveryApp{" +
+//                "deliveryAppName='" + deliveryAppName + '\'' +
+//                ", orderingAppCustomer=" + orderingAppCustomer +
+//                ", deliveryAppDriverName=" + deliveryAppDriver +
+//                ", restaurants=" + restaurants +
+//                '}';
+//    }
+
     public String toString() {
-        return "DeliveryApp{" +
-                "deliveryAppName='" + deliveryAppName + '\'' +
+        return  "deliveryAppName='" + deliveryAppName + '\'' +
                 ", orderingAppCustomer=" + orderingAppCustomer +
-                ", deliveryAppDriverName=" + deliveryAppDriverName +
-                ", restaurants=" + restaurants +
-                '}';
+                ", deliveryAppDriverName=" + deliveryAppDriver +
+                ", restaurants=" + restaurants ;
+    }
+
+    public String toCvsFile(){
+        return getDeliveryAppName() + "," + getOrderingAppCustomer() + "," + getDeliveryAppDriver() + "," + getRestaurants();
     }
 }

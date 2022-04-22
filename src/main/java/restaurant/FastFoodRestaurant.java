@@ -21,12 +21,10 @@ public class FastFoodRestaurant extends Restaurant{
 
     @Override
     public String toString() {
-        return "FastFoodRestaurant{" +
-                "name ='" + name + '\'' +
+        return "FastFoodRestaurantname ='" + name + '\'' +
                 ", item='" + item + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
                 ", specialNotes='" + specialNotes + '\'' +
-                ", ketchupPackets=" + ketchupPackets +
-                '}';
+                ", ketchupPackets=" + ketchupPackets;
     }
 }

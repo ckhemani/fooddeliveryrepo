@@ -6,6 +6,9 @@ public class Customer {
     private String address;
     private long mobileNumber;
 
+    public Customer() {
+    }
+
     public Customer(String firstName, String lastName, String address, long mobileNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -46,13 +49,19 @@ public class Customer {
     }
 
     @Override
+//    public String toString() {
+//        return "Customer{" +
+//                "firstName='" + firstName + '\'' +
+//                ", lastName='" + lastName + '\'' +
+//                ", address='" + address + '\'' +
+//                ", mobileNumber=" + mobileNumber +
+//                '}';
+//    }
     public String toString() {
-        return "Customer{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", mobileNumber=" + mobileNumber +
-                '}';
+        return  "CustFirstName='" + firstName + '\'' +
+                ", CustLastName='" + lastName + '\'' +
+                ", Custaddress='" + address + '\'' +
+                ", CustobileNumber=" + mobileNumber ;
     }
 }
 

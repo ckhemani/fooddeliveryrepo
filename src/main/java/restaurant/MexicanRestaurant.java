@@ -17,14 +17,22 @@ public class MexicanRestaurant extends Restaurant{
 
     @Override
     public String toString() {
-        return "MexicanRestaurant{" +
-                "name ='" + name + '\'' +
+        return "MexicanRestaurantName ='" + name + '\'' +
                 ", item='" + item + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
                 ", specialNotes='" + specialNotes + '\'' +
-                ", needChipAndSalsa=" + needChipAndSalsa +", " +
-                '}';
+                ", needChipAndSalsa=" + needChipAndSalsa ;
     }
+
+//    public String toString() {
+//        return "MexicanRestaurant{" +
+//                "name ='" + name + '\'' +
+//                ", item='" + item + '\'' +
+//                ", spiceLevel='" + spiceLevel + '\'' +
+//                ", specialNotes='" + specialNotes + '\'' +
+//                ", needChipAndSalsa=" + needChipAndSalsa +", " +
+//                '}';
+//    }
 
     public void setNeedChipAndSalsa(boolean needChipAndSalsa) {
         this.needChipAndSalsa = needChipAndSalsa;

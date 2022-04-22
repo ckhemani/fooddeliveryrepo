@@ -17,14 +17,22 @@ public class IndianRestaurant extends Restaurant{
 
     @Override
     public String toString() {
-        return "IndianRestaurant{" +
-                "name ='" + name + '\'' +
+        return "IndianRestaurantName ='" + name + '\'' +
                 ", item='" + item + '\'' +
                 ", spiceLevel='" + spiceLevel + '\'' +
                 ", specialNotes='" + specialNotes + '\'' +
-                ", chutneyPackets=" + chutneyPackets +
-                '}';
+                ", chutneyPackets=" + chutneyPackets;
     }
+
+//    public String toString() {
+//        return "IndianRestaurant{" +
+//                "name ='" + name + '\'' +
+//                ", item='" + item + '\'' +
+//                ", spiceLevel='" + spiceLevel + '\'' +
+//                ", specialNotes='" + specialNotes + '\'' +
+//                ", chutneyPackets=" + chutneyPackets +
+//                '}';
+//    }
 
     public void setChutneyPackets(int chutneyPackets) {
         this.chutneyPackets = chutneyPackets;
