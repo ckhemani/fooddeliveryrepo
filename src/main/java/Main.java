@@ -43,40 +43,6 @@ public class Main {
         //RW File Operation
         fileOperation();
 
-
-//        // Restaurant Selection and Food Selection
-//        while(true) {
-//            switch (pickRestaurant()) {
-//                case 1:
-//                    System.out.println("You have picked Chinese Restaurant !");
-//                    System.out.println(uberEats.getRestaurants().get(0).getItem());
-//                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Chinese Food");
-//                    System.out.println();
-//                    break;
-//                case 2:
-//                    System.out.println("You have picked up Fast Food Restaurant");
-//                    System.out.println(uberEats.getRestaurants().get(1).getItem());
-//                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Fast Food");
-//                    break;
-//                case 3:
-//                    System.out.println("You have picked up Indian Restaurant!");
-//                    System.out.println(uberEats.getRestaurants().get(2).getItem());
-//                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Indian Food");
-//                    break;
-//                case 4:
-//                    System.out.println("You have picked up Mexican Restaurant!");
-//                    System.out.println(uberEats.getRestaurants().get(3).getItem());
-//                    System.out.println("Total Bill to be paid " + TotalBillWithDeliveryApp() + " For Mexican Food");
-//                    break;
-//                case 5:
-//                    System.out.println("Thank you " + uberEats.getOrderingAppCustomer().getFirstName() + " for visiting the DeliveryApp " + "UberEats");
-//                    System.exit(0);
-//                default:
-//                    System.out.println("Please pick Restaurant 1-4 OR use 5 to exit");
-//            }
-//      }
-
-
     }
 
     public static String eatAppGreeting(){
@@ -219,17 +185,6 @@ public class Main {
                 break;
         }
     }
-//    public static int pickRestaurant(){
-//        System.out.println("""
-//                Please enter your Restaurant Cuisine selection?
-//                1. Chinese Restaurant
-//                2. Fast Food Restaurant
-//                3. Indian Restaurant
-//                4  Mexican Restaurant
-//                5. Exit
-//                """);
-//        return input.nextInt();
-//    }
 
     public static float TotalBillWithDeliveryApp(){
         TotalBill total = new TotalBill();
@@ -266,30 +221,6 @@ public class Main {
         }
     }
 
-    public static void testreadAFile(Path fileName){
-        String readFile = "";
-        try {
-            if (Files.exists(fileName)) {
-                readFile = Files.readString(fileName);
-                System.out.println(readFile);
-                System.out.println(Files.readAllLines(fileName));
-
-                String test = Files.readAllLines(fileName).get(Files.readAllLines(fileName).size()-1);
-                System.out.println(test);
-                String test1 = "";
-                for (int j = 0;j < 8; j++){
-                    test1+=test.charAt(j);
-                }
-                System.out.println(test1);
-                int test2 = Integer.parseInt(test1);
-                System.out.println(test2+=1);
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 
     //Update
     public static void writeAFile(Path fileName){
@@ -299,7 +230,6 @@ public class Main {
                 readFile = Files.readString(fileName);
             }
             String test1 = deliveryAppName.toCvsFile();
-            System.out.println(test1);
             String test2 = Files.readAllLines(fileName).get(Files.readAllLines(fileName).size()-1);
             String test3 = "";
             for (int j = 0;j < 8; j++){
@@ -307,14 +237,10 @@ public class Main {
             }
             int test3Integer = Integer.parseInt(test3);
             test3Integer+=1;
-            System.out.println(test3Integer);
             test3 = String.valueOf(test3Integer);
             ArrayList test4 = deliveryAppName.getRestaurants();
             Files.writeString(fileName,readFile);
-            Files.writeString(fileName,"\n",StandardOpenOption.APPEND);
-            Files.writeString(fileName,test3 + ",",StandardOpenOption.APPEND);
-            Files.writeString(fileName,test1 + ",",StandardOpenOption.APPEND);
-
+            Files.writeString(fileName,"\n" + test3 + "," + test1 + ',',StandardOpenOption.APPEND);
             for ( Object S : test4){
                 Files.writeString(fileName,S + ",",StandardOpenOption.APPEND);
             }
