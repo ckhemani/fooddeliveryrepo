@@ -15,15 +15,25 @@ public class IndianRestaurant extends Restaurant{
         return chutneyPackets;
     }
 
-    @Override
-    public String toString() {
-        return "IndianRestaurantName ='" + name + '\'' +
-                ", item='" + item + '\'' +
-                ", spiceLevel='" + spiceLevel + '\'' +
-                ", specialNotes='" + specialNotes + '\'' +
-                ", chutneyPackets=" + chutneyPackets;
+    public void setChutneyPackets(int chutneyPackets) {
+        this.chutneyPackets = chutneyPackets;
     }
 
+    public String toCvsFile() {
+        return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes() + "," + chutneyPackets;
+    }
+
+    @Override
+    public String toString() {
+        return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes();
+    }
+//    public String toString() {
+//        return "IndianRestaurantName ='" + name + '\'' +
+//                ", item='" + item + '\'' +
+//                ", spiceLevel='" + spiceLevel + '\'' +
+//                ", specialNotes='" + specialNotes + '\'' +
+//                ", chutneyPackets=" + chutneyPackets;
+//    }
 //    public String toString() {
 //        return "IndianRestaurant{" +
 //                "name ='" + name + '\'' +
@@ -33,8 +43,4 @@ public class IndianRestaurant extends Restaurant{
 //                ", chutneyPackets=" + chutneyPackets +
 //                '}';
 //    }
-
-    public void setChutneyPackets(int chutneyPackets) {
-        this.chutneyPackets = chutneyPackets;
-    }
 }

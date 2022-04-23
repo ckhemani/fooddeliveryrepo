@@ -1,6 +1,6 @@
 package restaurant;
 
-public class Restaurant {
+public abstract class Restaurant {
     String name;
     String item;
     String spiceLevel;
@@ -50,13 +50,17 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return "Restaurant{" +
-                "name='" + name + '\'' +
-                ", item='" + item + '\'' +
-                ", spiceLevel='" + spiceLevel + '\'' +
-                ", specialNotes='" + specialNotes + '\'' +
-                '}';
+        return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes();
     }
+
+//    public String toString() {
+//        return "Restaurant{" +
+//                "name='" + name + '\'' +
+//                ", item='" + item + '\'' +
+//                ", spiceLevel='" + spiceLevel + '\'' +
+//                ", specialNotes='" + specialNotes + '\'' +
+//                '}';
+//    }
 //    public String toString() {
 //        return "Restaurant{" +
 //                "name='" + name + '\'' +

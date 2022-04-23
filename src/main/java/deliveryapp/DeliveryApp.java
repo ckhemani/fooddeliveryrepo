@@ -84,6 +84,6 @@ public class DeliveryApp {
     }
 
     public String toCvsFile(){
-        return getDeliveryAppName() + "," + getOrderingAppCustomer() + "," + getDeliveryAppDriver() + "," + getRestaurants();
+        return getDeliveryAppName() + "," + getDeliveryAppDriver().toCvsFile() + "," + getOrderingAppCustomer().toCvsFile();
     }
 }

@@ -15,14 +15,24 @@ public class MexicanRestaurant extends Restaurant{
         return needChipAndSalsa;
     }
 
-    @Override
-    public String toString() {
-        return "MexicanRestaurantName ='" + name + '\'' +
-                ", item='" + item + '\'' +
-                ", spiceLevel='" + spiceLevel + '\'' +
-                ", specialNotes='" + specialNotes + '\'' +
-                ", needChipAndSalsa=" + needChipAndSalsa ;
+    public void setNeedChipAndSalsa(boolean needChipAndSalsa) {
+        this.needChipAndSalsa = needChipAndSalsa;
     }
+
+
+    public String toString() {
+        return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes();
+    }
+
+//    @Override
+//    public String toString() {
+//        return "MexicanRestaurantName ='" + name + '\'' +
+//                ", item='" + item + '\'' +
+//                ", spiceLevel='" + spiceLevel + '\'' +
+//                ", specialNotes='" + specialNotes + '\'' +
+//                ", needChipAndSalsa=" + needChipAndSalsa ;
+//    }
+
 
 //    public String toString() {
 //        return "MexicanRestaurant{" +
@@ -33,8 +43,4 @@ public class MexicanRestaurant extends Restaurant{
 //                ", needChipAndSalsa=" + needChipAndSalsa +", " +
 //                '}';
 //    }
-
-    public void setNeedChipAndSalsa(boolean needChipAndSalsa) {
-        this.needChipAndSalsa = needChipAndSalsa;
-    }
 }

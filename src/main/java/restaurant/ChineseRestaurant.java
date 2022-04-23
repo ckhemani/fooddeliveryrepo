@@ -2,15 +2,14 @@ package restaurant;
 
 public class ChineseRestaurant extends Restaurant{
     private int fortuneCookiepPackets;
-    private int hotSaucePackets;
 
     public ChineseRestaurant() {
     }
 
-    public ChineseRestaurant(String name, String item, String spiceLevel, String specialNotes, int fortuneCookiepPackets, int hotSaucePackets) {
+    public ChineseRestaurant(String name, String item, String spiceLevel, String specialNotes, int fortuneCookiepPackets) {
         super(name, item, spiceLevel, specialNotes);
         this.fortuneCookiepPackets = fortuneCookiepPackets;
-        this.hotSaucePackets = hotSaucePackets;
+
     }
 
     public int getFortuneCookiepPackets() {
@@ -21,12 +20,9 @@ public class ChineseRestaurant extends Restaurant{
         this.fortuneCookiepPackets = fortuneCookiepPackets;
     }
 
-    public int getHotSaucePackets() {
-        return hotSaucePackets;
-    }
 
-    public void setHotSaucePackets(int hotSaucePackets) {
-        this.hotSaucePackets = hotSaucePackets;
+    public String toCvsFile() {
+        return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes();
     }
 
     @Override
@@ -37,16 +33,12 @@ public class ChineseRestaurant extends Restaurant{
 //                ", spiceLevel='" + spiceLevel + '\'' +
 //                ", specialNotes='" + specialNotes + '\'' +
 //                ", fortuneCookiepPackets=" + fortuneCookiepPackets +
-//                ", hotSaucePackets=" + hotSaucePackets +
 //                '}';
 //    }
 
+
     public String toString() {
-        return  "ChineseRestaurantname ='" + name + '\'' +
-                ", item='" + item + '\'' +
-                ", spiceLevel='" + spiceLevel + '\'' +
-                ", specialNotes='" + specialNotes + '\'' +
-                ", fortuneCookiepPackets=" + fortuneCookiepPackets +
-                ", hotSaucePackets=" + hotSaucePackets ;
+        return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes() ;
     }
+
 }

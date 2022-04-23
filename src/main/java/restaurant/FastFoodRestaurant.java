@@ -19,12 +19,20 @@ public class FastFoodRestaurant extends Restaurant{
         this.ketchupPackets = ketchupPackets;
     }
 
+    public String toCvsFile() {
+        return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes();
+    }
+
     @Override
     public String toString() {
-        return "FastFoodRestaurantname ='" + name + '\'' +
-                ", item='" + item + '\'' +
-                ", spiceLevel='" + spiceLevel + '\'' +
-                ", specialNotes='" + specialNotes + '\'' +
-                ", ketchupPackets=" + ketchupPackets;
+        return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes();
     }
+//    public String toString() {
+//        return "FastFoodRestaurantname ='" + name + '\'' +
+//                ", item='" + item + '\'' +
+//                ", spiceLevel='" + spiceLevel + '\'' +
+//                ", specialNotes='" + specialNotes + '\'' +
+//                ", ketchupPackets=" + ketchupPackets;
+//    }
+
 }

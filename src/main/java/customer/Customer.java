@@ -63,6 +63,10 @@ public class Customer {
                 ", Custaddress='" + address + '\'' +
                 ", CustobileNumber=" + mobileNumber ;
     }
+
+    public String toCvsFile() {
+        return  getFirstName() + "," + getLastName() + "," + getAddress() + "," + getMobileNumber();
+    }
 }
 
 

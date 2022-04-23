@@ -1,4 +1,0 @@
-ORDERID #  
-Driverame='Chandru', Drivercar='Tesla'
-CustFirstName='Atal', CustLastName='Ahirwar', Custaddress='43710', CustobileNumber=33333
-ChineseRestaurantname ='chinaking', item='rice', spiceLevel='med', specialNotes='nothing', fortuneCookiepPackets=1, hotSaucePackets=0

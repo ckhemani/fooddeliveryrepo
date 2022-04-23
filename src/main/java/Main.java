@@ -4,18 +4,19 @@ import driver.Driver;
 import restaurant.*;
 import totalbill.TotalBill;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    private static final Path uberEatsFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\ubereats.txt");
-    private static final Path doorDashFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\doordash.txt");
-    private static final Path grubHubFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\grubhub.txt");
+//    private static final Path uberEatsFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\ubereats.txt");
+//    private static final Path doorDashFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\doordash.txt");
+//    private static final Path grubHubFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\grubhub.txt");
+    private static final Path orderingAppFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\orderingapp.cvs");
     private static final Scanner input = new Scanner(System.in);
     private static final DeliveryApp deliveryAppName = new DeliveryApp();
     private static final Customer customer = new Customer();
@@ -37,7 +38,7 @@ public class Main {
         // Adding Restaurant in App.
         addRestaurantsInApp();
 
-        createAFile(doorDashFilePath);createAFile(grubHubFilePath);createAFile(uberEatsFilePath);
+        createAFile(orderingAppFilePath);
 
         //RW File Operation
         fileOperation();
@@ -95,7 +96,6 @@ public class Main {
         System.out.println("Please enter your Car Details");
         driver.setCar(input.next());
         deliveryAppName.setDeliveryAppDriver(driver);
-        System.out.println(deliveryAppName.getDeliveryAppDriver());
     }
 
     public static void customerRegister(){
@@ -109,7 +109,6 @@ public class Main {
         System.out.println("Please enter your Mobile Number");
         customer.setMobileNumber(input.nextLong());
         deliveryAppName.setOrderingAppCustomer(customer);
-        System.out.println(deliveryAppName.getOrderingAppCustomer().getFirstName().toUpperCase());
     }
 
     public static void addRestaurantsInApp(){
@@ -193,8 +192,6 @@ public class Main {
                 i--;
             }
         }
-        System.out.println(deliveryAppName.toCvsFile());
-        System.out.println(deliveryAppName.getDeliveryAppName());
         for (int i=0;i<deliveryAppName.getRestaurants().size();i++) {
             System.out.println(deliveryAppName.getRestaurants().get(i));
         }
@@ -207,45 +204,18 @@ public class Main {
 
         switch (operation) {
             case "Read":
-                System.out.println("Which App File you want to read :UberEats/DoorDash/GrubHub ?");
-                filePath = input.next();
-                if(filePath.equals("UberEats")){
-                    System.out.println("reading uberEats File");
-                    readAFile(uberEatsFilePath);
-                }
-                else if(filePath.equals("DoorDash")){
-                    System.out.println("reading DoorDash File");
-                    readAFile(doorDashFilePath);
-                }
-                else if(filePath.equals("GrubHub")){
-                    System.out.println("reading Grubhub File");
-                    readAFile(grubHubFilePath);
-                }
-                else{
-                    System.out.println("You didn't selected proper App File");
-                }
+                readAFile(orderingAppFilePath);
                 break;
             case "Update":
-                System.out.println("Which App File you want to Update :UberEats/DoorDash/GrubHub ?");
-                filePath = input.next();
-                if(filePath.equals("UberEats")){
-                    System.out.println("Updating uberEats File");
-                    writeAFile(uberEatsFilePath);
-                }
-                else if(filePath.equals("DoorDash")){
-                    System.out.println("Updating DoorDash File");
-                    writeAFile(doorDashFilePath);
-                }
-                else if(filePath.equals("GrubHub")){
-                    System.out.println("Updating Grubhub File");
-                    writeAFile(grubHubFilePath);
-                }
-                else{
-                    System.out.println("You didn't selected proper App File for Updating");
+                for(int i=0;i<deliveryAppName.getRestaurants().size();i++) {
+                    writeAFile(orderingAppFilePath);
                 }
                 break;
             case "Delete":
                 System.out.println("Deleting File. This facility is not available now");
+                break;
+            default:
+                System.out.println("Please select Read/Update");
                 break;
         }
     }
@@ -296,6 +266,30 @@ public class Main {
         }
     }
 
+    public static void testreadAFile(Path fileName){
+        String readFile = "";
+        try {
+            if (Files.exists(fileName)) {
+                readFile = Files.readString(fileName);
+                System.out.println(readFile);
+                System.out.println(Files.readAllLines(fileName));
+
+                String test = Files.readAllLines(fileName).get(Files.readAllLines(fileName).size()-1);
+                System.out.println(test);
+                String test1 = "";
+                for (int j = 0;j < 8; j++){
+                    test1+=test.charAt(j);
+                }
+                System.out.println(test1);
+                int test2 = Integer.parseInt(test1);
+                System.out.println(test2+=1);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     //Update
     public static void writeAFile(Path fileName){
@@ -304,16 +298,25 @@ public class Main {
             if (Files.exists(fileName)) {
                 readFile = Files.readString(fileName);
             }
-            String test1 = deliveryAppName.getDeliveryAppName();
-            Driver test2 = deliveryAppName.getDeliveryAppDriver();
-            Customer test3 = deliveryAppName.getOrderingAppCustomer();
+            String test1 = deliveryAppName.toCvsFile();
+            System.out.println(test1);
+            String test2 = Files.readAllLines(fileName).get(Files.readAllLines(fileName).size()-1);
+            String test3 = "";
+            for (int j = 0;j < 8; j++){
+                test3+=test2.charAt(j);
+            }
+            int test3Integer = Integer.parseInt(test3);
+            test3Integer+=1;
+            System.out.println(test3Integer);
+            test3 = String.valueOf(test3Integer);
             ArrayList test4 = deliveryAppName.getRestaurants();
             Files.writeString(fileName,readFile);
-            Files.writeString(fileName,"ORDERID #  \n",StandardOpenOption.APPEND);
-            Files.writeString(fileName,test2 + "\n",StandardOpenOption.APPEND);
-            Files.writeString(fileName,test3 + "\n",StandardOpenOption.APPEND);
+            Files.writeString(fileName,"\n",StandardOpenOption.APPEND);
+            Files.writeString(fileName,test3 + ",",StandardOpenOption.APPEND);
+            Files.writeString(fileName,test1 + ",",StandardOpenOption.APPEND);
+
             for ( Object S : test4){
-                Files.writeString(fileName,S + "\n",StandardOpenOption.APPEND);
+                Files.writeString(fileName,S + ",",StandardOpenOption.APPEND);
             }
         } catch (Exception e) {
             e.printStackTrace();
