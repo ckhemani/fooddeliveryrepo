@@ -1,7 +1,5 @@
 package restaurant;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class MexicanRestaurant extends Restaurant{
     boolean needChipAndSalsa;
 

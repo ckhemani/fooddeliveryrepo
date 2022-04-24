@@ -1,10 +1,14 @@
 package restaurant;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Restaurant {
-    String name;
-    String item;
-    String spiceLevel;
-    String specialNotes;
+    private String name;
+    private String item;
+    private String spiceLevel;
+    private String specialNotes;
+//    private Set<String> items;
 
     public Restaurant() {
     }

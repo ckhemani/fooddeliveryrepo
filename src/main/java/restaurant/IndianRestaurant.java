@@ -3,7 +3,7 @@ package restaurant;
 import Interface.IFormatCvs;
 
 public class IndianRestaurant extends Restaurant implements IFormatCvs {
-    int chutneyPackets;
+    private int chutneyPackets;
 
     public IndianRestaurant() {
     }

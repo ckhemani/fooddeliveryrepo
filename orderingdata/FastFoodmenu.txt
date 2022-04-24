@@ -1,0 +1,3 @@
+Burger 7.99
+Sandwich 5.99
+Fries 2.99
