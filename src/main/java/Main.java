@@ -26,32 +26,15 @@ public class Main {
         //Greeting to EATING APP
         System.out.println(eatAppGreeting());
 
-//        // Select App for Delivery
-//        selectAppDeliverySelect();
-//
-//        // Adding driver in Deliver App.
-//        driverRegister();
-//
-//        // Adding Customer in Deliver APP.
-//        customerRegister();
-//
-//        // Adding Restaurant in App.
-//        selectRestaurantsInApp();
-//
-//        createAFile(orderingAppFilePath);
-
-        //RW File Operation
-        //fileOperation();
-
-        while(true){
+        while (true) {
             System.out.println("""
-            1 to place new Order.
-            2 to view all Orders.
-            3 to view particular order.
-            10 to exit of Switch loop
-            """);
+                    1 to place new Order.
+                    2 to view all Orders.
+                    3 to view particular order.
+                    10 to exit of Switch loop
+                    """);
             String choice = input.next();
-            switch(choice){
+            switch (choice) {
                 case "1":
                     // Select App for Delivery
                     selectAppDeliverySelect();
@@ -65,23 +48,30 @@ public class Main {
                     writeAFile(orderingAppFilePath);
                     break;
                 case "2":
+                    // Read the Complete File
                     readAFile(orderingAppFilePath);
                     break;
                 case "3":
-                    System.out.println("Enter the Order Number to be retrieved");
-                    String orderNumber = input.next();
-                    getDetailswithOrderNumber(orderingAppFilePath,orderNumber);
+                    // View particular order with order Number
+                    System.out.println("Do you have oder Number to be pulled? \"Yes OR No\"");
+                    String yesOrNo = input.next();
+                    if (yesOrNo.equals("Yes")) {
+                        System.out.println("Enter the Order Number to be retrieved");
+                        String orderNumber = input.next();
+                        getDetailswithOrderNumber(orderingAppFilePath, orderNumber);
+                    } else if(yesOrNo.equals("No")) {
+                        System.out.println("Function coming soon");
+                    }
                     break;
-                case "10":
-                    System.out.println("Exiting. Thanks for visiting the FoodOrderingApp");
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Please select the choices");
+                    case "10":
+                        System.out.println("Exiting. Thanks for visiting the FoodOrderingApp");
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("Please select the choices");
+                }
             }
         }
-    }
-
     public static String eatAppGreeting(){
         return "Welcome to App Ordering. " +
                 "Please keep eating and ordering online with palm of hands. "+
