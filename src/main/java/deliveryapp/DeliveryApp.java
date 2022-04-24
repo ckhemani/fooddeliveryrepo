@@ -67,15 +67,6 @@ public class DeliveryApp {
     }
 
     @Override
-//    public String toString() {
-//        return "DeliveryApp{" +
-//                "deliveryAppName='" + deliveryAppName + '\'' +
-//                ", orderingAppCustomer=" + orderingAppCustomer +
-//                ", deliveryAppDriverName=" + deliveryAppDriver +
-//                ", restaurants=" + restaurants +
-//                '}';
-//    }
-
     public String toString() {
         return  "deliveryAppName='" + deliveryAppName + '\'' +
                 ", orderingAppCustomer=" + orderingAppCustomer +

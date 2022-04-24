@@ -1,6 +1,8 @@
 package restaurant;
 
-public class IndianRestaurant extends Restaurant{
+import Interface.IFormatCvs;
+
+public class IndianRestaurant extends Restaurant implements IFormatCvs {
     int chutneyPackets;
 
     public IndianRestaurant() {
@@ -27,20 +29,4 @@ public class IndianRestaurant extends Restaurant{
     public String toString() {
         return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes();
     }
-//    public String toString() {
-//        return "IndianRestaurantName ='" + name + '\'' +
-//                ", item='" + item + '\'' +
-//                ", spiceLevel='" + spiceLevel + '\'' +
-//                ", specialNotes='" + specialNotes + '\'' +
-//                ", chutneyPackets=" + chutneyPackets;
-//    }
-//    public String toString() {
-//        return "IndianRestaurant{" +
-//                "name ='" + name + '\'' +
-//                ", item='" + item + '\'' +
-//                ", spiceLevel='" + spiceLevel + '\'' +
-//                ", specialNotes='" + specialNotes + '\'' +
-//                ", chutneyPackets=" + chutneyPackets +
-//                '}';
-//    }
 }

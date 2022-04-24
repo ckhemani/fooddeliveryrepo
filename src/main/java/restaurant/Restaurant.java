@@ -1,6 +1,6 @@
 package restaurant;
 
-public abstract class Restaurant {
+public class Restaurant {
     String name;
     String item;
     String spiceLevel;
@@ -52,23 +52,6 @@ public abstract class Restaurant {
     public String toString() {
         return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes();
     }
-
-//    public String toString() {
-//        return "Restaurant{" +
-//                "name='" + name + '\'' +
-//                ", item='" + item + '\'' +
-//                ", spiceLevel='" + spiceLevel + '\'' +
-//                ", specialNotes='" + specialNotes + '\'' +
-//                '}';
-//    }
-//    public String toString() {
-//        return "Restaurant{" +
-//                "name='" + name + '\'' +
-//                ", item='" + item + '\'' +
-//                ", spiceLevel='" + spiceLevel + '\'' +
-//                ", specialNotes='" + specialNotes + '\'' +
-//                '}';
-//    }
 }
 
 

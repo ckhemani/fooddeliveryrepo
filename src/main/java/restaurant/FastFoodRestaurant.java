@@ -27,12 +27,4 @@ public class FastFoodRestaurant extends Restaurant{
     public String toString() {
         return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes();
     }
-//    public String toString() {
-//        return "FastFoodRestaurantname ='" + name + '\'' +
-//                ", item='" + item + '\'' +
-//                ", spiceLevel='" + spiceLevel + '\'' +
-//                ", specialNotes='" + specialNotes + '\'' +
-//                ", ketchupPackets=" + ketchupPackets;
-//    }
-
 }

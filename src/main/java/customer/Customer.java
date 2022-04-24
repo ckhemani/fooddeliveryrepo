@@ -49,14 +49,7 @@ public class Customer {
     }
 
     @Override
-//    public String toString() {
-//        return "Customer{" +
-//                "firstName='" + firstName + '\'' +
-//                ", lastName='" + lastName + '\'' +
-//                ", address='" + address + '\'' +
-//                ", mobileNumber=" + mobileNumber +
-//                '}';
-//    }
+
     public String toString() {
         return  "CustFirstName='" + firstName + '\'' +
                 ", CustLastName='" + lastName + '\'' +

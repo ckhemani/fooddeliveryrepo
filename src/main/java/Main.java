@@ -1,23 +1,23 @@
 import customer.Customer;
 import deliveryapp.DeliveryApp;
 import driver.Driver;
+import enums.EStates;
 import restaurant.*;
 import totalbill.TotalBill;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 //    private static final Path uberEatsFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\ubereats.txt");
 //    private static final Path doorDashFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\doordash.txt");
 //    private static final Path grubHubFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\grubhub.txt");
     private static final Path orderingAppFilePath = Paths.get(System.getProperty("user.dir") + "\\orderingdata\\orderingapp.cvs");
-    private static final Scanner input = new Scanner(System.in);
+    private static final  Scanner input = new Scanner(System.in);
     private static final DeliveryApp deliveryAppName = new DeliveryApp();
     private static final Customer customer = new Customer();
     private static final Driver driver = new Driver();
@@ -26,69 +26,102 @@ public class Main {
         //Greeting to EATING APP
         System.out.println(eatAppGreeting());
 
-        // Select App for Delivery
-        appDeliverySelect();
-
-        // Adding driver in Deliver App.
-        driverRegister();
-
-        // Adding Customer in Deliver APP.
-        customerRegister();
-
-        // Adding Restaurant in App.
-        addRestaurantsInApp();
-
-        createAFile(orderingAppFilePath);
+//        // Select App for Delivery
+//        selectAppDeliverySelect();
+//
+//        // Adding driver in Deliver App.
+//        driverRegister();
+//
+//        // Adding Customer in Deliver APP.
+//        customerRegister();
+//
+//        // Adding Restaurant in App.
+//        selectRestaurantsInApp();
+//
+//        createAFile(orderingAppFilePath);
 
         //RW File Operation
-        fileOperation();
+        //fileOperation();
 
+        while(true){
+            System.out.println("""
+            1 to place new Order.
+            2 to view all Orders.
+            3 to view particular order.
+            10 to exit of Switch loop
+            """);
+            String choice = input.next();
+            switch(choice){
+                case "1":
+                    // Select App for Delivery
+                    selectAppDeliverySelect();
+                    // Adding driver in Deliver App.
+                    driverRegister();
+                    // Adding Customer in Deliver APP.
+                    customerRegister();
+                    // Adding Restaurant in App.
+                    selectRestaurantsInApp();
+                    // Update the order details
+                    writeAFile(orderingAppFilePath);
+                    break;
+                case "2":
+                    readAFile(orderingAppFilePath);
+                    break;
+                case "3":
+                    System.out.println("Enter the Order Number to be retrieved");
+                    String orderNumber = input.next();
+                    getDetailswithOrderNumber(orderingAppFilePath,orderNumber);
+                    break;
+                case "10":
+                    System.out.println("Exiting. Thanks for visiting the FoodOrderingApp");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Please select the choices");
+            }
+        }
     }
 
     public static String eatAppGreeting(){
-        return "Welcome to App Ordering. Please keep eating and ordering online with palm of hands. In future we will have Health Professional visitation too for obesity";
+        return "Welcome to App Ordering. " +
+                "Please keep eating and ordering online with palm of hands. "+
+                "In future we will have Health Professional visitation too for obesity.";
     }
 
-    public static void appDeliverySelect(){
-        System.out.println("Select Delivery App");
+    public static void selectAppDeliverySelect(){
+        System.out.println("Select Delivery App? \"UberEats/DoorDash/Grubhub\"");
         String appName = input.next();
         deliveryAppName.setDeliveryAppName(appName);
-        System.out.println(deliveryAppName.getDeliveryAppName());
     }
 
     public static void driverRegister(){
-        System.out.println("Please enter your  Name");
+        System.out.println("Please enter Driver Name");
         driver.setName(input.next());
-        System.out.println("Please enter your Car Details");
+        System.out.println("Please enter Driver Car Details");
         driver.setCar(input.next());
         deliveryAppName.setDeliveryAppDriver(driver);
     }
 
     public static void customerRegister(){
-        System.out.println("Please enter your first Name");
+        System.out.println("Please enter Customer first Name");
         customer.setFirstName(input.next());
-        System.out.println("Please enter your Last Name");
+        System.out.println("Please enter Customer Last Name");
         customer.setLastName(input.next());
-        System.out.println("Please enter your Address");
+        System.out.println("Please enter Customer Address");
         input.nextLine();
         customer.setAddress(input.nextLine());
-        System.out.println("Please enter your Mobile Number");
+        System.out.println("Please enter Customer Mobile Number");
         customer.setMobileNumber(input.nextLong());
         deliveryAppName.setOrderingAppCustomer(customer);
     }
 
-    public static void addRestaurantsInApp(){
+    public static void selectRestaurantsInApp(){
         ArrayList<Restaurant>  restaurants = new ArrayList<>();
-        System.out.println("Please enter the Number of Restaurants to be added in App");
-        int numberOfRestaurantToBeAdded = input.nextInt();
-
-        for (int i = 0; i < numberOfRestaurantToBeAdded; i++){
-
-            System.out.println("Please select cuisine type(Chinese/FastFood/Indian/Mexican) of restaurant to be added");
-            String cuisineType = input.next();
-            if(cuisineType.equals("Chinese")){
+        System.out.println("Please select cuisine type(Chinese/FastFood/Indian/Mexican) of restaurant to be added");
+        String cuisineType = input.next();
+        if(cuisineType.equals("Chinese")){
                 ChineseRestaurant rest1 = new ChineseRestaurant();
-                System.out.println("Please enter the name of Restaurant");
+                System.out.println("Please enter the name of Chinese Restaurant");
                 rest1.setName(input.next());
                 System.out.println("Please Enter Food Item to be ordered");
                 rest1.setItem(input.next());
@@ -102,10 +135,10 @@ public class Main {
                 System.out.println(rest1);
                 restaurants.add(rest1);
                 deliveryAppName.setRestaurants(restaurants);
-            }
-            else if(cuisineType.equals("FastFood")){
+        }
+        else if(cuisineType.equals("FastFood")){
                 FastFoodRestaurant rest1 = new FastFoodRestaurant();
-                System.out.println("Please enter the name of Restaurant");
+                System.out.println("Please enter the name of FastFood Restaurant");
                 rest1.setName(input.next());
                 System.out.println("Please Enter Food Item to be ordered");
                 rest1.setItem(input.next());
@@ -119,10 +152,10 @@ public class Main {
                 System.out.println(rest1);
                 restaurants.add(rest1);
                 deliveryAppName.setRestaurants(restaurants);
-            }
-            else if(cuisineType.equals("Indian")) {
+        }
+        else if(cuisineType.equals("Indian")) {
                 IndianRestaurant rest1 = new IndianRestaurant();
-                System.out.println("Please enter the name of Restaurant");
+                System.out.println("Please enter the name of Indian Restaurant");
                 rest1.setName(input.next());
                 System.out.println("Please Enter Food Item to be ordered");
                 rest1.setItem(input.next());
@@ -136,10 +169,10 @@ public class Main {
                 System.out.println(rest1);
                 restaurants.add(rest1);
                 deliveryAppName.setRestaurants(restaurants);
-            }
-            else if(cuisineType.equals("Mexican")) {
+        }
+        else if(cuisineType.equals("Mexican")) {
                 MexicanRestaurant rest1 = new MexicanRestaurant();
-                System.out.println("Please enter the name of Restaurant");
+                System.out.println("Please enter the name of Mexican Restaurant");
                 rest1.setName(input.next());
                 System.out.println("Please Enter Food Item to be ordered");
                 rest1.setItem(input.next());
@@ -153,18 +186,11 @@ public class Main {
                 System.out.println(rest1);
                 restaurants.add(rest1);
                 deliveryAppName.setRestaurants(restaurants);
-            }
-            else{
-                i--;
-            }
-        }
-        for (int i=0;i<deliveryAppName.getRestaurants().size();i++) {
-            System.out.println(deliveryAppName.getRestaurants().get(i));
         }
     }
 
     public static void fileOperation() {
-        System.out.println("Please enter you want to Read/Update File");
+        System.out.println("Please enter you want to Read/Update File OR get order details");
         String operation = input.next();
         String filePath = "";
 
@@ -173,12 +199,15 @@ public class Main {
                 readAFile(orderingAppFilePath);
                 break;
             case "Update":
-                for(int i=0;i<deliveryAppName.getRestaurants().size();i++) {
-                    writeAFile(orderingAppFilePath);
-                }
+                writeAFile(orderingAppFilePath);
                 break;
             case "Delete":
                 System.out.println("Deleting File. This facility is not available now");
+                break;
+            case "orderdetails":
+                System.out.println("Enter the Order Number to be retrieved");
+                String orderNumber = input.next();
+                getDetailswithOrderNumber(orderingAppFilePath,orderNumber);
                 break;
             default:
                 System.out.println("Please select Read/Update");
@@ -229,21 +258,49 @@ public class Main {
             if (Files.exists(fileName)) {
                 readFile = Files.readString(fileName);
             }
-            String test1 = deliveryAppName.toCvsFile();
-            String test2 = Files.readAllLines(fileName).get(Files.readAllLines(fileName).size()-1);
-            String test3 = "";
-            for (int j = 0;j < 8; j++){
-                test3+=test2.charAt(j);
+            String deliveryApptoCVS = deliveryAppName.toCvsFile();
+            String lastLineOfFile = Files.readAllLines(fileName).get(Files.readAllLines(fileName).size()-1);
+            String[] temp1 = lastLineOfFile.split(",");
+            String temp2 = "";
+            String orderNumber = temp1[0];
+            for (int x=1;x<temp1.length;x++){
+                temp2 += temp1[x] + ",";
             }
-            int test3Integer = Integer.parseInt(test3);
-            test3Integer+=1;
-            test3 = String.valueOf(test3Integer);
+
+            int orderNumberToInteger = Integer.parseInt(orderNumber);
+            orderNumberToInteger+=1;
+            orderNumber = String.valueOf(orderNumberToInteger);
+
             ArrayList test4 = deliveryAppName.getRestaurants();
             Files.writeString(fileName,readFile);
-            Files.writeString(fileName,"\n" + test3 + "," + test1 + ',',StandardOpenOption.APPEND);
+            Files.writeString(fileName,"\n" + orderNumber + "," + deliveryApptoCVS + ',',StandardOpenOption.APPEND);
             for ( Object S : test4){
-                Files.writeString(fileName,S + ",",StandardOpenOption.APPEND);
+                    Files.writeString(fileName,S + ",",StandardOpenOption.APPEND);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void getDetailswithOrderNumber(Path fileName,String orderNumber) {
+        try {
+            Map<String, String> orderDetails = new HashMap<>();
+            String readFile = "";
+            String eachLine = "";
+            String lastLineOfFile = Files.readAllLines(fileName).get(Files.readAllLines(fileName).size() - 1);
+            String[] temp1 = lastLineOfFile.split(",");
+
+            for(int x =0;x<Files.readAllLines(fileName).size();x++){
+                eachLine = Files.readAllLines(fileName).get(x);
+                String temp5 = "";
+                String [] arrayEachLine = eachLine.split(",");
+                String temp6 = arrayEachLine[0];
+                for(int y=1;y<arrayEachLine.length;y++){
+                    temp5+=arrayEachLine[y]+",";
+                }
+                orderDetails.put(temp6,temp5);
+            }
+            System.out.println(orderDetails.get(orderNumber));
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,5 +1,7 @@
 package restaurant;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class MexicanRestaurant extends Restaurant{
     boolean needChipAndSalsa;
 
@@ -19,28 +21,9 @@ public class MexicanRestaurant extends Restaurant{
         this.needChipAndSalsa = needChipAndSalsa;
     }
 
-
+    @Override
     public String toString() {
         return  getName() + "," + getItem() + "," + getSpiceLevel() + "," + getSpecialNotes();
     }
 
-//    @Override
-//    public String toString() {
-//        return "MexicanRestaurantName ='" + name + '\'' +
-//                ", item='" + item + '\'' +
-//                ", spiceLevel='" + spiceLevel + '\'' +
-//                ", specialNotes='" + specialNotes + '\'' +
-//                ", needChipAndSalsa=" + needChipAndSalsa ;
-//    }
-
-
-//    public String toString() {
-//        return "MexicanRestaurant{" +
-//                "name ='" + name + '\'' +
-//                ", item='" + item + '\'' +
-//                ", spiceLevel='" + spiceLevel + '\'' +
-//                ", specialNotes='" + specialNotes + '\'' +
-//                ", needChipAndSalsa=" + needChipAndSalsa +", " +
-//                '}';
-//    }
 }
