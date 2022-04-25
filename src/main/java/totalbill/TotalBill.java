@@ -3,7 +3,7 @@ package totalbill;
 import Interface.IFormatCvs;
 import deliveryapp.DeliveryApp;
 
-public class TotalBill{
+public class TotalBill implements IFormatCvs{
     private float priceOfItem;
     private static final float TAXRATEINPERCENT = (float) 0.06;
     private static final int FUELSURCHARGE = 1;
@@ -37,6 +37,10 @@ public class TotalBill{
 
     public float toCvsFile1() {
         return getPriceOfItem();
+    }
+
+    public String toCvsFile() {
+        return "TotalBill";
     }
 
     @Override
