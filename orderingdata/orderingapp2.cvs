@@ -1,0 +1,16 @@
+OrderNumber,DeliveryApp,NameofDriver,DriverCar,CustomerFName,CustomerLName,CustomerAddress,CustomerMobile,NameofRest,ItemOrdered,SpiceLevel,AnySpecialNotes,TotalBill
+10000001,UberEats,Atal,Telsa,1,1,1,1,10.99,1,Rice,1,1,16.7384
+10000002,UberEats,1,1,1,1,1,1,ChineseRestaurant2{},3.99
+10000003,UberEats,atal,1212,122,12,1,1,ChineseRestaurant2{},3.99
+10000004,UberEats,a,a,1,1,1,1,ChineseRestaurant2{},3.99
+10000005,UberEats,1,1,1,1,1,1,ChinaKing,medaa[Rice, Noodles],3.99
+10000006,UberEats,Atal,Telsa,Chandru,Khemani,43710,32323,ChinaKing,Med,no Nuts,[Rice, Noodles],3.99
+10000007,UberEats,1,1,1,1,1,1,ChinaKing,1,1,[Rice],3.99
+10000008,UberEats,Atal,Tesla,Chandru,Khemani,1,1,ChinaKing,med,1,Rice,,3.99
+10000009,UberEats,Atal,Tesla,Chandru,Kheamni,1,1,ChinaKing,Med,Nothing,Soup,Rice,Noodles,,3.99
+10000010,UberEats,Atal,Tesla,Chandru,Khemani,1,1,ChinaKing,Med,Nothing,Rice,Noodles,,3.99
+10000011,UberEats,Atal,1221,Chandru,Kheamni,1,1,Chinaking,Med,1,Rice#Noodles#,3.99
+10000012,UberEats,Atal,AA,CC,CC,11,11,ChinaKing,Med,Nothing,Rice#Noodles#,3.99
+10000013,UberEats,Atal,Tesla,Chandru,Khemani,32332,23232,Rasoi,Med,nothing,Samosa#Biryani#,52.66
+10000014,UberEats,Atal,Maruti,Chandru,Khemani,433434,32323,Rasoi,med,nothing,Samosa#Biryani#,52.66
+10000015,DoorDash,Atal,Maruti,Chand,Khemani,1,1,Rasoi,Med,Nothing,Samosa#Biryani#Dosa#,39.92

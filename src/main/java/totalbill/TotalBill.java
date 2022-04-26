@@ -1,7 +1,6 @@
 package totalbill;
 
 import Interface.IFormatCvs;
-import deliveryapp.DeliveryApp;
 
 public class TotalBill implements IFormatCvs{
     private float priceOfItem;
