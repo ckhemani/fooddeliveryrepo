@@ -12,7 +12,7 @@ public class TotalBill implements IFormatCvs{
     public TotalBill() {
     }
 
-    public TotalBill(float priceOfItem, float deliveryFee) {
+    public TotalBill(float priceOfItem) {
         this.priceOfItem = priceOfItem;
     }
 
